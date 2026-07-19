@@ -1,33 +1,29 @@
 import { Link } from 'react-router-dom'
 
-const cards = [
+const entries = [
   {
     to: '/about',
-    eyebrow: '01',
+    index: '01',
     title: 'About & Journey',
     body: 'My background, the path I have taken, and what I care about building.',
-    cta: 'Read my story',
   },
   {
     to: '/projects',
-    eyebrow: '02',
+    index: '02',
     title: 'Projects',
     body: 'Selected work — what I built, the problems it solved, and the impact.',
-    cta: 'See the work',
   },
   {
     to: '/contact',
-    eyebrow: '03',
+    index: '03',
     title: 'Get in Touch',
-    body: 'Open to collaboration, roles, and interesting conversations. Say hello.',
-    cta: 'Reach out',
+    body: 'Open to collaboration, roles, and interesting conversations.',
   },
   {
     to: '/chat',
-    eyebrow: '04',
+    index: '04',
     title: 'Ask AI',
-    body: 'Chat with an assistant that answers questions about my work in plain language.',
-    cta: 'Start chatting',
+    body: 'Chat with an assistant that answers questions about my work.',
   },
 ]
 
@@ -43,26 +39,22 @@ export default function Home() {
           Welcome to my corner of the web. Explore my journey, the projects I've
           shipped, or just ask my AI assistant anything about my work.
         </p>
-        <div className="hero-actions">
-          <Link to="/projects" className="btn btn--primary">
-            View projects
-          </Link>
-          <Link to="/chat" className="btn btn--ghost">
-            Ask AI anything
-          </Link>
-        </div>
       </section>
 
-      <section className="cards" aria-label="Explore">
-        {cards.map((card) => (
-          <Link key={card.to} to={card.to} className="card">
-            <span className="card-eyebrow">{card.eyebrow}</span>
-            <h2 className="card-title">{card.title}</h2>
-            <p className="card-body">{card.body}</p>
-            <span className="card-cta">{card.cta} →</span>
+      <nav className="directory" aria-label="Explore">
+        {entries.map((entry) => (
+          <Link key={entry.to} to={entry.to} className="directory-row">
+            <span className="directory-index">{entry.index}</span>
+            <span className="directory-text">
+              <span className="directory-title">{entry.title}</span>
+              <span className="directory-body">{entry.body}</span>
+            </span>
+            <span className="directory-arrow" aria-hidden="true">
+              →
+            </span>
           </Link>
         ))}
-      </section>
+      </nav>
     </div>
   )
 }

@@ -10,6 +10,11 @@ const navItems = [
 export default function Layout() {
   return (
     <div className="app-shell">
+      <div className="bg" aria-hidden="true">
+        <div className="bg-glow bg-glow--a" />
+        <div className="bg-glow bg-glow--b" />
+      </div>
+
       <header className="nav">
         <Link to="/" className="nav-brand">
           Abhijit Roy
